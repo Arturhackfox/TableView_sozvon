@@ -10,9 +10,10 @@
 		324DCC1C2B67F4330018E86E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC1B2B67F4330018E86E /* AppDelegate.swift */; };
 		324DCC1E2B67F4330018E86E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC1D2B67F4330018E86E /* SceneDelegate.swift */; };
 		324DCC202B67F4330018E86E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC1F2B67F4330018E86E /* ViewController.swift */; };
-		324DCC232B67F4330018E86E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324DCC212B67F4330018E86E /* Main.storyboard */; };
 		324DCC252B67F4350018E86E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 324DCC242B67F4350018E86E /* Assets.xcassets */; };
 		324DCC282B67F4350018E86E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 324DCC262B67F4350018E86E /* LaunchScreen.storyboard */; };
+		324DCC332B6800490018E86E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC322B6800490018E86E /* Model.swift */; };
+		324DCC352B6802A80018E86E /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 324DCC342B6802A80018E86E /* CustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,10 +21,11 @@
 		324DCC1B2B67F4330018E86E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		324DCC1D2B67F4330018E86E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		324DCC1F2B67F4330018E86E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		324DCC222B67F4330018E86E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		324DCC242B67F4350018E86E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		324DCC272B67F4350018E86E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		324DCC292B67F4350018E86E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		324DCC322B6800490018E86E /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		324DCC342B6802A80018E86E /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,40 @@
 		324DCC1A2B67F4330018E86E /* TableView_sozvon */ = {
 			isa = PBXGroup;
 			children = (
-				324DCC1B2B67F4330018E86E /* AppDelegate.swift */,
-				324DCC1D2B67F4330018E86E /* SceneDelegate.swift */,
-				324DCC1F2B67F4330018E86E /* ViewController.swift */,
-				324DCC212B67F4330018E86E /* Main.storyboard */,
+				324DCC312B67F4930018E86E /* App */,
+				324DCC302B67F4890018E86E /* Sources */,
+				324DCC2F2B67F4650018E86E /* Resources */,
+			);
+			path = TableView_sozvon;
+			sourceTree = "<group>";
+		};
+		324DCC2F2B67F4650018E86E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				324DCC242B67F4350018E86E /* Assets.xcassets */,
 				324DCC262B67F4350018E86E /* LaunchScreen.storyboard */,
 				324DCC292B67F4350018E86E /* Info.plist */,
 			);
-			path = TableView_sozvon;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		324DCC302B67F4890018E86E /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				324DCC1F2B67F4330018E86E /* ViewController.swift */,
+				324DCC322B6800490018E86E /* Model.swift */,
+				324DCC342B6802A80018E86E /* CustomCell.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		324DCC312B67F4930018E86E /* App */ = {
+			isa = PBXGroup;
+			children = (
+				324DCC1B2B67F4330018E86E /* AppDelegate.swift */,
+				324DCC1D2B67F4330018E86E /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +154,6 @@
 			files = (
 				324DCC282B67F4350018E86E /* LaunchScreen.storyboard in Resources */,
 				324DCC252B67F4350018E86E /* Assets.xcassets in Resources */,
-				324DCC232B67F4330018E86E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +164,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				324DCC352B6802A80018E86E /* CustomCell.swift in Sources */,
 				324DCC202B67F4330018E86E /* ViewController.swift in Sources */,
 				324DCC1C2B67F4330018E86E /* AppDelegate.swift in Sources */,
 				324DCC1E2B67F4330018E86E /* SceneDelegate.swift in Sources */,
+				324DCC332B6800490018E86E /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		324DCC212B67F4330018E86E /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				324DCC222B67F4330018E86E /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		324DCC262B67F4350018E86E /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,12 +314,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7S5KXF68WA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TableView_sozvon/Info.plist;
+				INFOPLIST_FILE = TableView_sozvon/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,9 +326,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my.TableView-sozvon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -322,12 +345,11 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 7S5KXF68WA;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TableView_sozvon/Info.plist;
+				INFOPLIST_FILE = TableView_sozvon/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationLandscapeRight;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -335,9 +357,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.my.TableView-sozvon";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
