@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    private let array: [[Model]] = [
+    private var array: [[Model]] = [
         [
             Model(name: "Dima", age: 10),
             Model(name: "Arthur", age: 20)
@@ -27,8 +27,11 @@ class ViewController: UIViewController {
         let table = UITableView(frame: .zero, style: .insetGrouped)
         table.backgroundColor = .systemYellow
         table.dataSource = self // что бы передать управление данными таблицы на ViewController
-        table.register(CustomCell.self, forCellReuseIdentifier: "CustomCell") // какой это будет тип ? и какой айди
+        table.delegate = self
+        table.register(CustomCell.self, forCellReuseIdentifier: CustomCell.identifier) // какой это будет тип ? и какой айди
+        table.register(CustomHeader.self, forHeaderFooterViewReuseIdentifier: CustomHeader.identifier)
         table.translatesAutoresizingMaskIntoConstraints = false
+        
         
         return table
     }()
@@ -59,7 +62,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController: UITableViewDataSource {
+extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     // MARK: - number of rows
     
@@ -76,13 +79,79 @@ extension ViewController: UITableViewDataSource {
     /// у 3 ячейки section = 0 & row = 2
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CustomCell", for: indexPath) as? CustomCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: CustomCell.identifier, for: indexPath) as? CustomCell
         let data = array[indexPath.section][indexPath.row]  /// передаём данные с первой секции первой ячейки ЗАПУСТИТЬСЯ ЗАНОВО ПОСЛЕ ПРИСВОЕННИЯ ДАННЫХ столько раз сколько есть ячеек
-        cell?.textLabel?.text = data.name
-        cell?.detailTextLabel?.text = "\(data.age)"
+        cell?.model = data
+        
+        // MARK: изминение цвета ячеек
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            cell?.backgroundColor = .cyan
+        }
         
         return cell ?? UITableViewCell()
     }
     
+    // MARK: Header
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        if section == 0 {
+//            return "First section header"
+//        } else {
+//            return "Other section header"
+//        }
+//    }
+    
+    // MARK: Footer
+    func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        if section == 0 {
+            return "First section footer"
+        } else {
+            return "Other section footer"
+        }
+    }
+    
+    // MARK: Delegate
+    // MARK: Custom headers
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomHeader.identifier) as? CustomHeader
+        
+        if section == 0 {
+            header?.configureHeader(image: "heart", text: "This is First Header")
+            return header
+        } else {
+            header?.configureHeader(image: "globe", text: "Other headers")
+            return header
+        }
+    }
+    // AUTO ROW HEIGHT
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return 30
+        } else {
+            return UITableView.automaticDimension
+        }
+    }
+    
+    // MARK: - что делать при нажатиях на конкретную ячейку
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("нажал на \(indexPath.row)")
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        let vc = DetailView()
+        let data = array[indexPath.section][indexPath.row]
+        vc.model = data
+        
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            array[indexPath.section].remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
+    }
 }
 
